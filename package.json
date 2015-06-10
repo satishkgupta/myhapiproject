@@ -1,0 +1,29 @@
+{
+  "name": "myhapiproject",
+  "version": "1.0.0",
+  "description": "myhapiproject",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/satishkgupta/myhapiproject.git"
+  },
+  "keywords": [
+    "606020`abc"
+  ],
+  "author": "Satish Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/satishkgupta/myhapiproject/issues"
+  },
+  "homepage": "https://github.com/satishkgupta/myhapiproject",
+  "dependencies": {
+    "good": "^6.1.4",
+    "good-console": "^5.0.1",
+    "good-file": "^5.0.1",
+    "good-http": "^5.0.0",
+    "hapi": "^8.6.0"
+  }
+}
