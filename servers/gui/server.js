@@ -41,20 +41,22 @@ var logoptions = {
     }]
 };
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-        reply('Hello, world!');
-    }
+server.views({
+    engines: {
+        html: require('handlebars')
+    },
+    relativeTo: __dirname,
+    path: './views',
+    layoutPath: './views/layout',
+    helpersPath: './views/helpers'
 });
 
 server.route({
-    method: 'GET',
-    path: '/{name}',
-    handler: function (request, reply) {
-        reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
-    }
+  method: "GET",
+  path: "/",
+  handler: function(request, reply) {
+    reply.view("index");
+  }
 });
 
 server.register({
