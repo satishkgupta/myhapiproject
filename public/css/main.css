@@ -73,8 +73,8 @@ a:after {
 
 #headerwrap {
 	background-color: #009E8E;
-	padding-top: 10px;
-    padding-bottom: 50px;
+	padding-top: 60px;
+    /*padding-bottom: 20px;*/
 }
 
 #headerwrap h1 {

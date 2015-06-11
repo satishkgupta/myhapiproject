@@ -16,6 +16,14 @@ module.exports = {
             name: 'images'
         }
     },
+    png: {
+        handler: {
+            directory: { path: './public/png' }
+        },
+        app: {
+            name: 'png'
+        }
+    },
     css: {
         handler: {
             directory: { path: './public/css' }

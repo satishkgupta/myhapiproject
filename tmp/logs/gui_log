@@ -1,2 +1,5 @@
-{"event":"log","timestamp":1433948525508,"tags":["info"],"data":"Server running at: http://localhost:3000","pid":5795}
-{"event":"log","timestamp":1433948709714,"tags":["info"],"data":"Server running at: http://localhost:3000","pid":5804}
+{"event":"log","timestamp":1434022478520,"tags":["GUI started at: http://0.0.0.0:3030"],"pid":7110}
+{"event":"log","timestamp":1434023092575,"tags":["GUI started at: http://0.0.0.0:3030"],"pid":7133}
+{"event":"log","timestamp":1434024386460,"tags":["GUI started at: http://0.0.0.0:3030"],"pid":7164}
+{"event":"log","timestamp":1434024499414,"tags":["GUI started at: http://0.0.0.0:3030"],"pid":7171}
+{"event":"log","timestamp":1434024993054,"tags":["GUI started at: http://0.0.0.0:3030"],"pid":7188}
