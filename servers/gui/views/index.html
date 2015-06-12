@@ -21,6 +21,15 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/smoothscroll.js"></script>
     <script src="/js/bootstrap.js"></script>
+    
+    <!-- Start imports : For React -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+
+	<!-- <script src="/js/react-bootstrap.min.js"></script> -->
 
   </head>
 
@@ -40,25 +49,29 @@
 	        <div class="navbar-collapse collapse">
 	          <ul class="nav navbar-nav">
 	            <li class="active"><a href="#home" class="smothscroll">Home</a></li>
-	            <li><a href="#showcase1" class="smothScroll">Our-Service</a></li>
 	            <li><a href="#desc" class="smothscroll">How it Works?</a></li>
+	           	<li><a href="#showcase1" class="smothScroll">Our-Service</a></li>
 	            <li><a href="#contact" class="smothScroll">Contact Us</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 	      </div>
 	    </div>
 
-
 	<section id="home" name="home"></section>
 	<div id="headerwrap">
 	    <div class="container">
 	    	<div class="row centered">
-	    		<div class="col-lg-12">
+	    		<div class="col-lg-6">
 					<h1>Welcome To <b>CarePhysio</b></h1>
-					<h3><a href="#home" class="smothscroll"> <b>Start here</b> </a>, to schedule a Physiotherapy home visit.</h3>
+					<h3>Physiotherapy @ comfort of your Home!!!</h3>
+					<h3>To quick schedule a Physiotherapy home visit, <a href="#home" class="smothscroll"> <b>start here -> </b> </a></h3>
 					<br>
 	    		</div>
 	    		
+	    		<div id="example" class="col-lg-6">
+				</div>
+				<script type="text/jsx" src="/js/reactcode.js"></script>
+				<!--
 	    		<div class="col-lg-2">
 	    			<h5>Amazing Results</h5>
 	    			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -73,10 +86,40 @@
 	    			<h5>Awesome Design</h5>
 	    			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 	    		</div>
+	    		-->
 	    	</div>
 	    </div> <!--/ .container -->
 	</div><!--/ #headerwrap -->
 	
+			<section id="desc" name="desc"></section>
+	<!-- INTRO WRAP -->
+	<div id="intro">
+		<div class="container">
+			<div class="row centered">
+				<h1>How it Works?</h1>
+				<br>
+				<br>
+				<div class="col-lg-4">
+					<img src="/png/intro01.png" alt="">
+					<h3>1. Schedule Online</h3>
+					<p>Fill in your Name, Phone Number, e-mail, Home Address and Submit.</p>
+				</div>
+				<div class="col-lg-4">
+					<img src="/png/intro02.png" alt="">
+					<h3>2. Receive Our Confirmation Call</h3>
+					<p>CarePhysio Executive will give a confirmation call shortly after to confirm the schedule.</p>
+				</div>
+				<div class="col-lg-4">
+					<img src="/png/intro03.png" alt="">
+					<h3>3. Get Physiotherapy @ Home</h3>
+					<p>Once confirmed, our professional will visit you on the Confirmed Date and Time.</p>
+				</div>
+			</div>
+			<br>
+			<hr>
+	    </div> <!--/ .container -->
+	</div><!--/ #introwrap -->
+
 	<!-- FEATURES WRAP -->
 	<section id="showcase1" name="showcase1"></section>
 	<div id="features">
@@ -154,35 +197,6 @@
 			</div>
 		</div><!--/ .container -->
 	</div><!--/ #features -->
-	
-		<section id="desc" name="desc"></section>
-	<!-- INTRO WRAP -->
-	<div id="intro">
-		<div class="container">
-			<div class="row centered">
-				<h1>How it Works?</h1>
-				<br>
-				<br>
-				<div class="col-lg-4">
-					<img src="/png/intro01.png" alt="">
-					<h3>1. Schedule Online</h3>
-					<p>Fill in your Name, Phone Number, e-mail, Home Address and Submit.</p>
-				</div>
-				<div class="col-lg-4">
-					<img src="/png/intro02.png" alt="">
-					<h3>2. Receive Our Confirmation Call</h3>
-					<p>CarePhysio Executive will give a confirmation call shortly after to confirm the schedule.</p>
-				</div>
-				<div class="col-lg-4">
-					<img src="/png/intro03.png" alt="">
-					<h3>3. Get Physiotherapy @ Home</h3>
-					<p>Once confirmed, our professional will visit you on the Confirmed Date and Time.</p>
-				</div>
-			</div>
-			<br>
-			<hr>
-	    </div> <!--/ .container -->
-	</div><!--/ #introwrap -->
 
 	<!--
 	<section id="showcase" name="showcase"></section>
