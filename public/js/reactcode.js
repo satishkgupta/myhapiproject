@@ -12,7 +12,7 @@ var LOCALITY = [
 ]
 
 var APPOINTMENT = [
-  '15-June-2015 morning', '15-June-2015 afternoon', '15-June-2015 evening'
+  '15-June-2015 morning', '15-June-2015 noon', '15-June-2015 evening'
 ]
 
 var DIAGNOSIS = [
