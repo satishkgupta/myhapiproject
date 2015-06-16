@@ -21,7 +21,7 @@ module.exports = {
     },
     "gui": {
         "host": "0.0.0.0",
-        "port": "3030"
+        "port": "8080"
     },
     "email": {
         "service": "Gmail",

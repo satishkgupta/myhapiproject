@@ -1,21 +1,29 @@
 /** @jsx React.DOM */
 
+var STATES = [
+  'AL', 'AK', 'AS', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI',
+  'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS',
+  'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR',
+  'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
+]
+
 var LOCALITY = [
-  'Wakad (Pune)', 'Hinjewadi (Pune)', 'Pimple Saudagar (Pune)'
+  'Baner (Pune)', 'Pimple Saudagar (Pune)', 'Wakad (Pune)'
+]
+
+var APPOINTMENT = [
+  '15-June-2015 morning', '15-June-2015 afternoon', '15-June-2015 evening'
 ]
 
 var DIAGNOSIS = [
-  'Frozen shoulder', 'Parkinson`s disease', 'Pimple Saudagar (Pune)', 'ACL Repair', 'Others'
+  'PIVD', 'Cerebral Palsy', 'Frozen Shoulder', 'Others'
 ]
 
-var APPT = [
-  '12-June-2015, 9.00 am', '12-June-2015, 11.00 am', '12-June-2015, 01.00 pm', '12-June-2015, 03.00 pm', '12-June-2015, 05.00 pm'
-]
 
 var Example = React.createClass({
   getInitialState: function() {
     return {
-      email: false
+      email: true
     , question: false
     , submitted: null
     }
@@ -37,30 +45,26 @@ var Example = React.createClass({
           <div className="pull-right">
             <label className="checkbox-inline">
               <input type="checkbox"
-                checked={this.state.email}
-                onChange={this.handleChange.bind(this, 'email')}
-              /> Email
-            </label>
-            <label className="checkbox-inline">
-              <input type="checkbox"
                 checked={this.state.question}
                 onChange={this.handleChange.bind(this, 'question')}
-              /> Question
+              /> Add Comments
             </label>
           </div>
         </div>
+
         <div className="panel-body">
+        {submitted}
           <ContactForm ref="contactForm"
             email={this.state.email}
             question={this.state.question}
             company={this.props.company}
           />
+
         </div>
         <div className="panel-footer">
-          <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Submit</button>
+          <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Schedule a HOME visit</button>
         </div>
       </div>
-      {submitted}
     </div>
   }
 
@@ -93,7 +97,7 @@ var ContactForm = React.createClass({
   }
 
 , isValid: function() {
-    var fields = ['name', 'phoneNumber', 'address', 'state', 'diagnosis','appt']
+    var fields = ['locality','appointment','diagnosis','phoneNumber', 'address']
     if (this.props.email) fields.push('email')
     if (this.props.question) fields.push('question')
 
@@ -116,11 +120,10 @@ var ContactForm = React.createClass({
 
 , getFormData: function() {
     var data = {
-      firstName: this.refs.name.getDOMNode().value
-    , phoneNumber: this.refs.phoneNumber.getDOMNode().value
-    , appt: this.refs.appt.getDOMNode().value
-    , locality: this.refs.locality.getDOMNode().value
+      locality: this.refs.locality.getDOMNode().value
+    , appointment: this.refs.appointment.getDOMNode().value
     , diagnosis: this.refs.diagnosis.getDOMNode().value
+    , phoneNumber: this.refs.phoneNumber.getDOMNode().value
     , address: this.refs.address.getDOMNode().value
     }
     if (this.props.email) data.email = this.refs.email.getDOMNode().value
@@ -130,38 +133,67 @@ var ContactForm = React.createClass({
 
 , render: function() {
     return <div className="form-horizontal">
-      {this.renderTextInput('name', 'Name *')}
-      {this.renderTextInput('phoneNumber', 'Phone number *')}
-      {this.renderSelect('appt', 'Appt', APPT)}
-      {this.renderSelect('locality', 'Locality *', LOCALITY)}
-      {this.renderSelect('diagnosis', 'Diagnosis', DIAGNOSIS)}
-      {this.renderTextInput('address', 'Address with Pin')}
-      {this.props.email && this.renderTextInput('email', 'Email')}
-      {this.props.question && this.renderTextarea('question', 'Question')}
+      {this.renderSelectLocality('locality', LOCALITY)}
+      {this.renderSelectAppt('appointment', APPOINTMENT)}
+      {this.renderSelectDiagnosis('diagnosis', DIAGNOSIS)}
+      {this.renderTextInput('phoneNumber')}
+      {this.props.email && this.renderTextInput('email')}
+      {this.props.question && this.renderTextarea('question')}
+      {this.renderTextareaAddress('address')}
     </div>
   }
 
-, renderTextInput: function(id, label) {
-    var ph = "Pleaes enter ".concat(id);
-    return this.renderField(id, label,
-      <input type="text" className="form-control"  placeholder={ph} id={id} ref={id}/>
+, renderTextInput: function(id) {
+  var ph = "Your ".concat(id);
+    return this.renderField(id,
+      <input type="text" className="form-control" placeholder={ph} id={id} ref={id}/>
     )
   }
 
-, renderTextarea: function(id, label) {
-    return this.renderField(id, label,
-      <textarea className="form-control" id={id} ref={id}/>
+, renderTextareaAddress: function(id) {
+    return this.renderField(id,
+      <textarea className="form-control" placeholder="Name & Address with Pin" id={id} ref={id}/>
     )
   }
 
-, renderSelect: function(id, label, values) {
+, renderTextarea: function(id) {
+    return this.renderField(id,
+      <textarea className="form-control" placeholder="Add Comments" id={id} ref={id}/>
+    )
+  }
+
+, renderSelectLocality: function(id, values) {
     var options = values.map(function(value) {
       return <option value={value}>{value}</option>
     })
-    return this.renderField(id, label,
+    return this.renderField(id,
       <select className="form-control" id={id} ref={id}>
+      <option value="" selected disabled>Select your locality</option>
         {options}
-        <option value="" selected disabled>Please select</option>
+      </select>
+    )
+  }
+
+, renderSelectAppt: function(id, values) {
+    var options = values.map(function(value) {
+      return <option value={value}>{value}</option>
+    })
+    return this.renderField(id,
+      <select className="form-control" id={id} ref={id}>
+      <option value="" selected disabled>Select Appointment</option>
+        {options}
+      </select>
+    )
+  }
+
+, renderSelectDiagnosis: function(id, values) {
+    var options = values.map(function(value) {
+      return <option value={value}>{value}</option>
+    })
+    return this.renderField(id,
+      <select className="form-control" id={id} ref={id}>
+      <option value="" selected disabled>Select Disgnosis</option>
+        {options}
       </select>
     )
   }

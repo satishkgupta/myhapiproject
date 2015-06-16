@@ -4373,7 +4373,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-  background-color: #f2f2f2;
+  background-color: #FFFFFF;
   border-color: #e7e7e7;
 }
 
@@ -4395,7 +4395,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #777777;
 }
 
-.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .dnavbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #333333;
   background-color: transparent;
@@ -5325,6 +5325,7 @@ a.list-group-item:focus {
 
 .panel-body {
   padding: 15px;
+  background-color: #009E8E
 }
 
 .panel-body:before,
@@ -5387,6 +5388,7 @@ a.list-group-item:focus {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 16px;
+  color: inherit;
 }
 
 .panel-title > a {
@@ -5395,7 +5397,7 @@ a.list-group-item:focus {
 
 .panel-footer {
   padding: 10px 15px;
-  background-color: #f5f5f5;
+  background-color: #009E8E;
   border-top: 1px solid #dddddd;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
@@ -5433,7 +5435,7 @@ a.list-group-item:focus {
 
 .panel-default > .panel-heading {
   color: #333333;
-  background-color: #f5f5f5;
+  background-color: #009E8E;
   border-color: #dddddd;
 }
 
