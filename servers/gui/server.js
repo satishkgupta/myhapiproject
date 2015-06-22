@@ -31,4 +31,4 @@ if (!module.parent) {
     });
 }
 
-//module.exports = server;
+module.exports = server;

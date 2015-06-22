@@ -16,7 +16,7 @@ var APPOINTMENT = [
 ]
 
 var DIAGNOSIS = [
-  'PIVD', 'Cerebral Palsy', 'Frozen Shoulder', 'Others'
+  'PIVD', 'Cerebral Palsyee', 'Frozen Shoulder', 'Others'
 ]
 
 
@@ -36,6 +36,13 @@ var Example = React.createClass({
         <p>ContactForm data:</p>
         <pre><code>{JSON.stringify(this.state.submitted, null, '  ')}</code></pre>
       </div>
+    var xhr = new XMLHttpRequest();
+    var url = "http://127.0.0.1:3000/submit/".concat(JSON.stringify(this.state.submitted));
+    xhr.open("POST", url, true);
+    //xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    //xhr.send(JSON.stringify(this.state.submitted));
+    //alert(JSON.stringify(this.state.submitted));
+    xhr.send();
     }
 
     return <div>
