@@ -19,8 +19,8 @@ server.views({
     },
     relativeTo: './servers/gui',
     path: './views',
-    layoutPath: './views/layout',
-    helpersPath: './views/helpers'
+    //layoutPath: './views/layout',
+    //helpersPath: './views/helpers'
 });
 
 //To Start GUI Server

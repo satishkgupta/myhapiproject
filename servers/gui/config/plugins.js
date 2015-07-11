@@ -15,27 +15,27 @@ module.exports = function(server, config) {
                 events: { log: '*'},
                 config: './tmp/logs/gui_log'
             },{
-                reporter: require('good-file'),
-                events: { response: '*' },
-                config: './tmp/logs/gui_response'
-            }, {
+            //    reporter: require('good-file'),
+            //    events: { response: '*' },
+            //    config: './tmp/logs/gui_response'
+            //}, {
                 reporter: require('good-console'),
                 events: { log: ['error', 'medium'] }
-            }, {
-                reporter: require('good-file'),
-                events: { ops: '*'},
-                config: './tmp/logs/gui_ops'
-            }, {
-                reporter: 'good-http',
-                events: { error: '*' },
-                config: {
-                endpoint: 'http://prod.logs:3000',
-                wreck: {
-                    headers: { 'x-api-key' : 12345 }
-                }
-            }
-        }]
-    };
+            //}, {
+            //    reporter: require('good-file'),
+            //    events: { ops: '*'},
+            //    config: './tmp/logs/gui_ops'
+            //}, {
+            //    reporter: 'good-http',
+            //    events: { error: '*' },
+            //    config: {
+            //        endpoint: 'http://prod.logs:3000',
+            //        wreck: {
+            //            headers: { 'x-api-key' : 12345 }
+            //        }
+            //    }
+            }]
+        };
 
     server.register({
         register: Good,

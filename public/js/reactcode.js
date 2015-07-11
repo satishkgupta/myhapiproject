@@ -70,7 +70,7 @@ var Example = React.createClass({
     //xhr.send(JSON.stringify(this.state.submitted));
     //alert(JSON.stringify(this.state.submitted));
     xhr.send();
-    alert('We have received your details! CarePhysio representative will get back to you shortly.')
+    alert('Thankyou! for choosing us. We have received your details. CarePhysio representative will get back to you shortly.')
     }
 
     return <div>

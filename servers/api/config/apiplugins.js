@@ -14,17 +14,17 @@ module.exports = function(apiServer, config) {
                 events: { log: '*'},
                 config: './tmp/logs/api_log'
             },{
-                reporter: require('good-file'),
-                events: { response: '*' },
-                config: './tmp/logs/api_response'
-            }, {
+            //    reporter: require('good-file'),
+            //    events: { response: '*' },
+            //    config: './tmp/logs/api_response'
+            //}, {
                 reporter: require('good-console'),
                 events: { log: ['error', 'medium'] }
             }, {
-                reporter: require('good-file'),
-                events: { ops: '*'},
-                config: './tmp/logs/api_ops'
-            }, {
+            //    reporter: require('good-file'),
+            //    events: { ops: '*'},
+            //    config: './tmp/logs/api_ops'
+            //}, {
                 reporter: 'good-http',
                 events: { error: '*' },
                 config: {
