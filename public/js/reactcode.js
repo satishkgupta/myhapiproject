@@ -61,7 +61,7 @@ var Example = React.createClass({
       submitted = <div className="alert alert-success">
         <p><b>Details submitted successfully! </b>
         <br></br>CarePhysio representative will get back to you shortly.
-        <br></br>Meanwhile, if you want to reach us immediately, please call 1800 9876 20.</p>
+        <br></br>If you want to reach us immediately, please call 1800 9876 20.</p>
       </div>
     var xhr = new XMLHttpRequest();
     var url = "http://127.0.0.1:3000/submit/".concat(JSON.stringify(this.state.submitted));
@@ -130,36 +130,54 @@ var ContactForm = React.createClass({
 
     if (!trim(this.refs['locality'].getDOMNode().value)) {
         alert('Please select your locality!')
+        this.refs['locality'].getDOMNode().focus();
         return false
     }
 
     if (!trim(this.refs['appointment'].getDOMNode().value)) {
         alert('Please select appointment slot!')
+        this.refs['appointment'].getDOMNode().focus();
         return false
     }
 
     if (!trim(this.refs['diagnosis'].getDOMNode().value)) {
         alert('Please select diagnosis!')
+        this.refs['diagnosis'].getDOMNode().focus();
         return false
     }
 
-
+    var regexp = /^\d{10}$/;
+    var phone = trim(this.refs['phoneNumber'].getDOMNode().value);
     if (!trim(this.refs['phoneNumber'].getDOMNode().value)) {
         alert('Please enter your 10 digit Mobile Number!')
+        this.refs['phoneNumber'].getDOMNode().focus();
         return false
-    } 
-
-    if (!trim(this.refs['email'].getDOMNode().value)) {
-        alert('Please enter your email address!')
-        return false
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(trim(this.refs['email'].getDOMNode().value))) {
-      alert("You have entered an invalid email address!")
+    } else if (!phone.match(regexp)){
+      alert('Please enter 10 digit Mobile Number. Example - 9876543210. No need to add country code in the beginning.')
+      this.refs['phoneNumber'].getDOMNode().focus();
       return false
     }
 
+    if (!trim(this.refs['email'].getDOMNode().value)) {
+        alert('Please enter your email address!')
+        this.refs['email'].getDOMNode().focus();
+        return false
+    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(trim(this.refs['email'].getDOMNode().value))) {
+      alert("You have entered an invalid email address!")
+      this.refs['email'].getDOMNode().focus();
+      return false
+    }
+
+    var addregex = /^[a-z0-9\s,'-]*$/i;
+    var add = trim(this.refs['address'].getDOMNode().value);
     if (!trim(this.refs['address'].getDOMNode().value)) {
         alert('Please enter your name & address with pin!')
+        this.refs['address'].getDOMNode().focus();
         return false
+    } else if (!add.match(addregex)){
+      alert('Invalid name or address! Please enter alphabet, digit, hyphen and comma only in the name or address.' )
+      this.refs['address'].getDOMNode().focus();
+      return false
     }
 
     var errors = {}
