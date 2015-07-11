@@ -175,7 +175,7 @@ var ContactForm = React.createClass({
         this.refs['address'].getDOMNode().focus();
         return false
     } else if (!add.match(addregex)){
-      alert('Invalid name or address! Please enter alphabet, digit, hyphen and comma only in the name or address.' )
+      alert('Invalid name or address! Please enter alphabets, numbers, hyphen and comma only in the name or address.' )
       this.refs['address'].getDOMNode().focus();
       return false
     }
