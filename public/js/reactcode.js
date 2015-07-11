@@ -59,8 +59,9 @@ var Example = React.createClass({
     var submitted
     if (this.state.submitted !== null) {
       submitted = <div className="alert alert-success">
-        <p>ContactForm data:</p>
-        <pre><code>{JSON.stringify(this.state.submitted, null, '  ')}</code></pre>
+        <p><b>Details submitted successfully! </b>
+        <br></br>CarePhysio representative will get back to you shortly.
+        <br></br>If you want to reach us immediately, please call 1800 9876 20</p>
       </div>
     var xhr = new XMLHttpRequest();
     var url = "http://127.0.0.1:3000/submit/".concat(JSON.stringify(this.state.submitted));
