@@ -61,7 +61,7 @@ var Example = React.createClass({
       submitted = <div className="alert alert-success">
         <p><b>Details submitted successfully! </b>
         <br></br>CarePhysio representative will get back to you shortly.
-        <br></br>If you want to reach us immediately, please call 1800 9876 20</p>
+        <br></br>Meanwhile, if you want to reach us immediately, please call 1800 9876 20.</p>
       </div>
     var xhr = new XMLHttpRequest();
     var url = "http://127.0.0.1:3000/submit/".concat(JSON.stringify(this.state.submitted));
@@ -70,6 +70,7 @@ var Example = React.createClass({
     //xhr.send(JSON.stringify(this.state.submitted));
     //alert(JSON.stringify(this.state.submitted));
     xhr.send();
+    alert('We have received your details! CarePhysio representative will get back to you shortly.')
     }
 
     return <div>
@@ -127,6 +128,40 @@ var ContactForm = React.createClass({
     if (this.props.email) fields.push('email')
     if (this.props.question) fields.push('question')
 
+    if (!trim(this.refs['locality'].getDOMNode().value)) {
+        alert('Please select your locality!')
+        return false
+    }
+
+    if (!trim(this.refs['appointment'].getDOMNode().value)) {
+        alert('Please select appointment slot!')
+        return false
+    }
+
+    if (!trim(this.refs['diagnosis'].getDOMNode().value)) {
+        alert('Please select diagnosis!')
+        return false
+    }
+
+
+    if (!trim(this.refs['phoneNumber'].getDOMNode().value)) {
+        alert('Please enter your 10 digit Mobile Number!')
+        return false
+    } 
+
+    if (!trim(this.refs['email'].getDOMNode().value)) {
+        alert('Please enter your email address!')
+        return false
+    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(trim(this.refs['email'].getDOMNode().value))) {
+      alert("You have entered an invalid email address!")
+      return false
+    }
+
+    if (!trim(this.refs['address'].getDOMNode().value)) {
+        alert('Please enter your name & address with pin!')
+        return false
+    }
+
     var errors = {}
     fields.forEach(function(field) {
       var value = trim(this.refs[field].getDOMNode().value)
@@ -170,7 +205,7 @@ var ContactForm = React.createClass({
   }
 
 , renderTextInput: function(id) {
-  var ph = "Your ".concat(id);
+  var ph = "Enter your ".concat(id);
     return this.renderField(id,
       <input type="text" className="form-control" placeholder={ph} id={id} ref={id}/>
     )
@@ -178,7 +213,7 @@ var ContactForm = React.createClass({
 
 , renderTextareaAddress: function(id) {
     return this.renderField(id,
-      <textarea className="form-control" placeholder="Name & Address with Pin" id={id} ref={id}/>
+      <textarea className="form-control" placeholder="Enter your Name & Address with Pin" id={id} ref={id}/>
     )
   }
 

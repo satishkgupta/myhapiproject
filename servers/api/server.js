@@ -21,7 +21,7 @@ var handler = function (request, reply) {
 
     var data = {
         from: '2014anakin@gmail.com',
-        to: 'satishkgupta@gmail.com',
+        to: 'physiocarepvtltd@gmail.com',
         subject: reqdatajson.appointment.concat(' / ').concat(reqdatajson.email),
         html: text,
         context: {
