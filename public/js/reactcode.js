@@ -8,17 +8,43 @@ var STATES = [
 ]
 
 var LOCALITY = [
-  'Baner (Pune)', 'Pimple Saudagar (Pune)', 'Wakad (Pune)'
+  'Baner (Pune)', 'Pimple Saudagar (Pune)', 'Wakad (Pune)', 'Ravet (Pune)', 'Kalewadi (Pune)', 'Hinjewadi Ph1 (Pune)'
 ]
 
+/** 
 var APPOINTMENT = [
   '15-June-2015 morning', '15-June-2015 noon', '15-June-2015 evening'
 ]
+*/
 
 var DIAGNOSIS = [
-  'PIVD', 'Cerebral Palsyee', 'Frozen Shoulder', 'Others'
+  'Mechnaical back pain', 'Mechanical neck pain', 'Frozen shoulder', 'Post fracture stiffness', 'Post operative stiffness', 
+  'Paralysis', 'Spondylolisthesis', 'Cerebral Palsy', 'Hemiplegia', 'Paraplegia', 'Quadriplegia', 'Parkinson\'s disease', 
+  'Osteo-arthritis', 'Rheumotoid arthritis', 'Muscular dystrophy', 'PIVD', 'Brain injury', 'ACL repair', 'Radiculopathy', 
+  'Congenital anomalies', 'Delayed milestones', 'Peripheral nerve injury', 'Geriatric (60+)', 'Ankylosing Spondilitis', 
+  'Others - Ortho', 'Spondilitis', 'Bells palsy', 'Others - Neuro', 'Others'
 ]
 
+//function To calculate appointment dates 7 days in advanace, starting next day, with 3 slots each day
+function apptdates() {
+  var date = new Date();
+  //var id = d.setDate(d.getDate() + 1); 
+  var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  var displaydate = [];
+  for (i = 0; i < 7; i++) {
+    date.setDate(date.getDate() + 1);
+    var day = days[date.getDay()];
+    var month = months[date.getMonth()];
+    var year = date.getFullYear();
+    var dt = date.getDate();
+    displaydate.push(day+", Morning ( "+dt+"-"+month+" )");
+    displaydate.push(day+", Noon ( "+dt+"-"+month+" )");
+    displaydate.push(day+", Evening ( "+dt+"-"+month+" )");
+  }
+  return displaydate;
+}
 
 var Example = React.createClass({
   getInitialState: function() {
@@ -48,15 +74,7 @@ var Example = React.createClass({
     return <div>
       <div className="panel panel-default">
         <div className="panel-heading clearfix">
-          <h3 className="panel-title pull-left">Quick Schedule</h3>
-          <div className="pull-right">
-            <label className="checkbox-inline">
-              <input type="checkbox"
-                checked={this.state.question}
-                onChange={this.handleChange.bind(this, 'question')}
-              /> Add Comments
-            </label>
-          </div>
+          <h3 className="panel-title pull-left">To schedule a home visit, <b>Start here</b></h3>
         </div>
 
         <div className="panel-body">
@@ -141,7 +159,7 @@ var ContactForm = React.createClass({
 , render: function() {
     return <div className="form-horizontal">
       {this.renderSelectLocality('locality', LOCALITY)}
-      {this.renderSelectAppt('appointment', APPOINTMENT)}
+      {this.renderSelectAppt('appointment', apptdates())}
       {this.renderSelectDiagnosis('diagnosis', DIAGNOSIS)}
       {this.renderTextInput('phoneNumber')}
       {this.props.email && this.renderTextInput('email')}
