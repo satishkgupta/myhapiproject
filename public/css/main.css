@@ -31,7 +31,7 @@ p {
 
 /* Links */
 a {
-    color: #3bc492;
+    color: #009E8E;
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -110,6 +110,7 @@ a:after {
 #features {
 	padding-top: 50px;
 	padding-bottom: 50px;
+    background: url(../png/Fotolia_82035719_S1.jpg) no-repeat center top;
     /* border-top: #bdc3c7 solid 5px; */
 }
 
