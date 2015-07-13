@@ -14,16 +14,25 @@ require('./config/apiplugins')(apiServer, config);
 //Mailer handler
 var handler = function (request, reply) {
 
-    var reqdatajson = JSON.parse(request.params.details);
+    //var reqdatajson = JSON.parse(request.params.details);
     //var datajson = request.payload.phoneNumber;
     //var requesttext = encodeURIComponent(request.params.details);
-    var text = JSON.stringify(reqdatajson, null, '  ');
+    var text = {
+        locality: request.payload.locality
+        , appointment: request.payload.appointment
+        , diagnosis: request.payload.diagnosis 
+        , phoneNumber: request.payload.phoneNumber 
+        , address: request.payload.address 
+        , email: request.payload.email  
+    };
 
+
+    //var text = JSON.stringify(reqdatajson, null, '  ');
     var data = {
         from: '2014anakin@gmail.com',
         to: 'physiocarepvtltd@gmail.com',
-        subject: reqdatajson.appointment.concat(' / ').concat(reqdatajson.email),
-        html: text,
+        subject: request.payload.appointment.toString().concat(' / ').concat(request.payload.email.toString()),
+        html: JSON.stringify(text, null, '  '),
         context: {
             name: 'Satish Gupta'
         }
@@ -31,11 +40,11 @@ var handler = function (request, reply) {
 
     var Mailer = request.server.plugins.mailer;
     Mailer.sendMail(data, function (err, info) {
-
         reply();
     });
 };
-apiServer.route({ method: 'post', path: '/submit/{details}', handler: handler });
+
+apiServer.route({ method: 'post', path: '/submit', handler: handler });
 
 
 if (!module.parent) {

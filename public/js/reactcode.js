@@ -63,13 +63,24 @@ var Example = React.createClass({
         <br></br>CarePhysio representative will get back to you shortly.
         <br></br>If you want to reach us immediately, please call 1800 9876 20.</p>
       </div>
-    var xhr = new XMLHttpRequest();
-    var url = "http://127.0.0.1:3000/submit/".concat(JSON.stringify(this.state.submitted));
-    xhr.open("POST", url, true);
-    //xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    //var xhr = new XMLHttpRequest();
+    //var url = "http://127.0.0.1:3000/submit";
+    //xhr.open("POST", url, true);
+    //xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     //xhr.send(JSON.stringify(this.state.submitted));
+    $.ajax({
+      type: 'POST',
+      url: 'http://127.0.0.1:3000/submit',
+      data: this.state.submitted,
+      dataType: 'application/json',
+      //success: function(data) { 
+      // alert("POSTED SUCCESSFULLY TO THE SERVER");
+      // $('#subscribePage').html('<h1>POSTED</h1>');     
+      //} // Success Function
+      });   // Ajax Call
+
     //alert(JSON.stringify(this.state.submitted));
-    xhr.send();
+    //xhr.send();
     alert('Thankyou for choosing CarePhysio! We have received your details. CarePhysio representative will get back to you shortly.')
     }
 
