@@ -1,4 +1,4 @@
 curl -X POST -H "Content-Type: application/json" -d '{"locality":"Pimple Saudagar (Pune)","appointment":"Wed, Morning ( 15-Jul )","diagnosis":"Post fracture stiffness","phoneNumber":"1234567890","address":"as","email":"sasas@gmail.com"}' -i http://127.0.0.1:3000/submit
 
 
-curl -X POST -H "Content-Type: application/json" -d '{"locality":"Pimple Saudagar (Pune)","appointment":"Wed, Morning ( 15-Jul )","diagnosis":"Post fracture stiffness","phoneNumber":"1234567890","address":"as","email":"sasas@gmail.com"}' -i http://127.0.0.1:3000/submit
+curl -X POST -H "Content-Type: application/json" -d '{"locality":"Pimple Saudagar (Pune)","appointment":"Wed, Morning ( 15-Jul )","diagnosis":"Post fracture stiffness","phoneNumber":"1234567890","address":"as","email":"sasas@gmail.com"}' -i http://139.162.14.36:3000/submit

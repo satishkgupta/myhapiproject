@@ -177,6 +177,10 @@ var ContactForm = React.createClass({
       alert("You have entered an invalid email address!")
       this.refs['email'].getDOMNode().focus();
       return false
+    } else if ((trim(this.refs['email'].getDOMNode().value)).length.toString() > 100){
+      alert('email is too long!')
+      this.refs['email'].getDOMNode().focus();
+      return false
     }
 
     var addregex = /^[a-z0-9\s,'-]*$/i;
@@ -187,6 +191,10 @@ var ContactForm = React.createClass({
         return false
     } else if (!add.match(addregex)){
       alert('Invalid name or address! Please enter alphabets, numbers, hyphen and comma only in the name or address.' )
+      this.refs['address'].getDOMNode().focus();
+      return false
+    } else if ((trim(this.refs['address'].getDOMNode().value)).length.toString() > 300){
+      alert('name and address is too long!')
       this.refs['address'].getDOMNode().focus();
       return false
     }
