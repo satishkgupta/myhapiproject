@@ -81,7 +81,7 @@ var Example = React.createClass({
 
     //alert(JSON.stringify(this.state.submitted));
     //xhr.send();
-    alert('Thankyou! We have received your details and we will get back to you shortly. Meanwhile, if you want to reach us immediately, please call 1800 9876 20')
+    alert('Thankyou! We have received your details and will get back to you shortly. Meanwhile, in case you want to reach us immediately, please call 1800 9876 20')
     }
 
     return <div>
