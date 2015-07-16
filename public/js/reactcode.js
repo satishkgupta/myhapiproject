@@ -40,7 +40,7 @@ function apptdates() {
     var year = date.getFullYear();
     var dt = date.getDate();
     displaydate.push(day+", Morning ( "+dt+"-"+month+" )");
-    displaydate.push(day+", Noon ( "+dt+"-"+month+" )");
+    displaydate.push(day+", Afternoon ( "+dt+"-"+month+" )");
     displaydate.push(day+", Evening ( "+dt+"-"+month+" )");
   }
   return displaydate;
@@ -70,7 +70,7 @@ var Example = React.createClass({
     //xhr.send(JSON.stringify(this.state.submitted));
     $.ajax({
       type: 'POST',
-      url: 'http://127.0.0.1:3000/submit',
+      url: 'http://carephysio.in/schedule',
       data: this.state.submitted,
       dataType: 'application/json',
       //success: function(data) { 
