@@ -50,7 +50,7 @@ apiServer.route({ method: 'post', path: '/submit', handler: handler });
 if (!module.parent) {
     apiServer.start(function() {
         var message = 'api Server started at: ' + apiServer.info.uri;
-        apiServer.log(message);
+        console.log(message);
     });
 }
 

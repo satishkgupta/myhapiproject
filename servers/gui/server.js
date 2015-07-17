@@ -27,7 +27,7 @@ server.views({
 if (!module.parent) {
     server.start(function() {
         var message = 'GUI started at: ' + server.info.uri;
-        server.log(message);
+        console.log(message);
     });
 }
 
