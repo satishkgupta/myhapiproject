@@ -80,7 +80,7 @@ var Example = React.createClass({
 
     //alert(JSON.stringify(this.state.submitted));
     //xhr.send();
-    alert('Thankyou! We have received your details and will get back to you shortly.')
+    alert('Thankyou for contacting us! We have received your details and will get back to you shortly.')
     }
 
     return <div>
