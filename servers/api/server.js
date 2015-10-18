@@ -18,9 +18,7 @@ var handler = function (request, reply) {
     //var datajson = request.payload.phoneNumber;
     //var requesttext = encodeURIComponent(request.params.details);
     var text = {
-        locality: request.payload.locality
-        , appointment: request.payload.appointment
-        , diagnosis: request.payload.diagnosis 
+          Name: request.payload.Name 
         , phoneNumber: request.payload.phoneNumber 
         , address: request.payload.address 
         , email: request.payload.email  
@@ -31,7 +29,7 @@ var handler = function (request, reply) {
     var data = {
         from: '2014anakin@gmail.com',
         to: 'physiocarepvtltd@gmail.com',
-        subject: request.payload.appointment.toString().concat(' / ').concat(request.payload.email.toString()),
+        subject: request.payload.Name.toString().concat(' / ').concat(request.payload.email.toString()),
         html: JSON.stringify(text, null, '  '),
         context: {
             name: 'Satish Gupta'

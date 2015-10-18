@@ -60,8 +60,7 @@ var Example = React.createClass({
     if (this.state.submitted !== null) {
       submitted = <div className="alert alert-success">
         <p><b>Details submitted successfully! </b>
-        <br></br>CarePhysio representative will get back to you shortly.
-        <br></br>If you want to reach us immediately, please call 1800 9876 20.</p>
+        <br></br>We will get back to you shortly.</p>
       </div>
     //var xhr = new XMLHttpRequest();
     //var url = "http://127.0.0.1:3000/submit";
@@ -81,13 +80,13 @@ var Example = React.createClass({
 
     //alert(JSON.stringify(this.state.submitted));
     //xhr.send();
-    alert('Thankyou! We have received your details and will get back to you shortly. Meanwhile, in case you want to reach us immediately, please call 1800 9876 20')
+    alert('Thankyou! We have received your details and will get back to you shortly.')
     }
 
     return <div>
       <div className="panel panel-default">
         <div className="panel-heading clearfix">
-          <h3 className="panel-title pull-left">To schedule a home visit, <b>Start here</b></h3>
+          <h3 className="panel-title pull-left"><b>Contact Form</b></h3>
         </div>
 
         <div className="panel-body">
@@ -100,7 +99,7 @@ var Example = React.createClass({
 
         </div>
         <div className="panel-footer">
-          <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>Schedule a HOME visit</button>
+          <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>SUBMIT</button>
         </div>
       </div>
     </div>
@@ -135,25 +134,13 @@ var ContactForm = React.createClass({
   }
 
 , isValid: function() {
-    var fields = ['locality','appointment','diagnosis','phoneNumber', 'address']
+    var fields = ['Name','phoneNumber', 'address']
     if (this.props.email) fields.push('email')
     if (this.props.question) fields.push('question')
 
-    if (!trim(this.refs['locality'].getDOMNode().value)) {
-        alert('Please select your locality!')
-        this.refs['locality'].getDOMNode().focus();
-        return false
-    }
-
-    if (!trim(this.refs['appointment'].getDOMNode().value)) {
-        alert('Please select appointment slot!')
-        this.refs['appointment'].getDOMNode().focus();
-        return false
-    }
-
-    if (!trim(this.refs['diagnosis'].getDOMNode().value)) {
-        alert('Please select diagnosis!')
-        this.refs['diagnosis'].getDOMNode().focus();
+    if (!trim(this.refs['Name'].getDOMNode().value)) {
+        alert('Please enter your Name!')
+        this.refs['Name'].getDOMNode().focus();
         return false
     }
 
@@ -186,17 +173,9 @@ var ContactForm = React.createClass({
     var addregex = /^[a-z0-9\s,'-]*$/i;
     var add = trim(this.refs['address'].getDOMNode().value);
     if (!trim(this.refs['address'].getDOMNode().value)) {
-        alert('Please enter your name & address with pin!')
+        alert('Please enter your Message!')
         this.refs['address'].getDOMNode().focus();
         return false
-    } else if (!add.match(addregex)){
-      alert('Invalid name or address! Please enter alphabets, numbers, hyphen and comma only in the name or address.' )
-      this.refs['address'].getDOMNode().focus();
-      return false
-    } else if ((trim(this.refs['address'].getDOMNode().value)).length.toString() > 300){
-      alert('name and address is too long!')
-      this.refs['address'].getDOMNode().focus();
-      return false
     }
 
     var errors = {}
@@ -218,9 +197,7 @@ var ContactForm = React.createClass({
 
 , getFormData: function() {
     var data = {
-      locality: this.refs.locality.getDOMNode().value
-    , appointment: this.refs.appointment.getDOMNode().value
-    , diagnosis: this.refs.diagnosis.getDOMNode().value
+      Name: this.refs.Name.getDOMNode().value
     , phoneNumber: this.refs.phoneNumber.getDOMNode().value
     , address: this.refs.address.getDOMNode().value
     }
@@ -231,9 +208,7 @@ var ContactForm = React.createClass({
 
 , render: function() {
     return <div className="form-horizontal">
-      {this.renderSelectLocality('locality', LOCALITY)}
-      {this.renderSelectAppt('appointment', apptdates())}
-      {this.renderSelectDiagnosis('diagnosis', DIAGNOSIS)}
+      {this.renderTextInput('Name')}
       {this.renderTextInput('phoneNumber')}
       {this.props.email && this.renderTextInput('email')}
       {this.props.question && this.renderTextarea('question')}
@@ -250,49 +225,13 @@ var ContactForm = React.createClass({
 
 , renderTextareaAddress: function(id) {
     return this.renderField(id,
-      <textarea className="form-control" placeholder="Enter your Name & Address with Pin" id={id} ref={id}/>
+      <textarea className="form-control" placeholder="Enter your Message" id={id} ref={id}/>
     )
   }
 
 , renderTextarea: function(id) {
     return this.renderField(id,
       <textarea className="form-control" placeholder="Add Comments" id={id} ref={id}/>
-    )
-  }
-
-, renderSelectLocality: function(id, values) {
-    var options = values.map(function(value) {
-      return <option value={value}>{value}</option>
-    })
-    return this.renderField(id,
-      <select className="form-control" id={id} ref={id}>
-      <option value="" selected disabled>Select your locality</option>
-        {options}
-      </select>
-    )
-  }
-
-, renderSelectAppt: function(id, values) {
-    var options = values.map(function(value) {
-      return <option value={value}>{value}</option>
-    })
-    return this.renderField(id,
-      <select className="form-control" id={id} ref={id}>
-      <option value="" selected disabled>Select Appointment</option>
-        {options}
-      </select>
-    )
-  }
-
-, renderSelectDiagnosis: function(id, values) {
-    var options = values.map(function(value) {
-      return <option value={value}>{value}</option>
-    })
-    return this.renderField(id,
-      <select className="form-control" id={id} ref={id}>
-      <option value="" selected disabled>Select Disgnosis</option>
-        {options}
-      </select>
     )
   }
 
