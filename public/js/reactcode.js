@@ -59,7 +59,7 @@ var Example = React.createClass({
     var submitted
     if (this.state.submitted !== null) {
       submitted = <div className="alert alert-success">
-        <p><b>Details submitted successfully! </b>
+        <p><b>Your message has been sent! </b>
         <br></br>We will get back to you shortly.</p>
       </div>
     //var xhr = new XMLHttpRequest();
@@ -80,7 +80,7 @@ var Example = React.createClass({
 
     //alert(JSON.stringify(this.state.submitted));
     //xhr.send();
-    alert('Thankyou for contacting us! We have received your details and will get back to you shortly.')
+    alert('Your message has been sent. We`ll get back to you soon, normally this is within a few hours')
     }
 
     return <div>
