@@ -86,7 +86,7 @@ var Example = React.createClass({
     return <div>
       <div className="panel panel-default">
         <div className="panel-heading clearfix">
-          <h3 className="panel-title pull-left"><b>Contact Form</b></h3>
+          <h3 className="panel-title pull-centre"><b>Send a Message</b></h3>
         </div>
 
         <div className="panel-body">
@@ -99,7 +99,7 @@ var Example = React.createClass({
 
         </div>
         <div className="panel-footer">
-          <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>SUBMIT</button>
+          <button type="button" className="btn btn-primary btn-block" onClick={this.handleSubmit}>SEND MESSAGE</button>
         </div>
       </div>
     </div>
