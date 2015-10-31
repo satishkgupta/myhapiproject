@@ -1,20 +1,3 @@
-var http = createRequestObject();
-var areal = Math.random() + "";
-var real = areal.substring(2,6);
-
-function createRequestObject() {
-	var xmlhttp;
-	try { xmlhttp=new ActiveXObject("Msxml2.XMLHTTP"); }
-  catch(e) {
-    try { xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
-    catch(f) { xmlhttp=null; }
-  }
-  if(!xmlhttp&&typeof XMLHttpRequest!="undefined") {
-  	xmlhttp=new XMLHttpRequest();
-  }
-	return  xmlhttp;
-}
-
 function sendRequest() {
 	var rnd = Math.random();
 	var name = document.getElementById("name").value;
@@ -117,10 +100,6 @@ function handleResponse() {
   }
 	catch(e){}
 	finally{}
-}
-
-function isUndefined(a) {
-   return typeof a == 'undefined';
 }
 
 function trim(a) {
