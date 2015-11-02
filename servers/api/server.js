@@ -21,14 +21,14 @@ var handler = function (request, reply) {
           Name: request.payload.Name 
         , phoneNumber: request.payload.phoneNumber 
         , address: request.payload.address 
-        , email: request.payload.email  
+        , email: request.payload.email
     };
 
 
     //var text = JSON.stringify(reqdatajson, null, '  ');
     var data = {
-        from: '2014anakin@gmail.com',
-        to: 'physiocarepvtltd@gmail.com',
+        from: 'contact@carephysio.in',
+        to: 'contact@carephysio.in',
         subject: request.payload.Name.toString().concat(' / ').concat(request.payload.email.toString()),
         html: JSON.stringify(text, null, '  '),
         context: {
@@ -44,6 +44,13 @@ var handler = function (request, reply) {
 
 apiServer.route({ method: 'post', path: '/submit', handler: handler });
 
+apiServer.route({
+    method: 'GET',
+    path: '/loaderio-4eb634ba88e795b17b3b06e6da542f3b/',
+    handler: function (request, reply) {
+        reply('loaderio-4eb634ba88e795b17b3b06e6da542f3b');
+    }
+});
 
 if (!module.parent) {
     apiServer.start(function() {
@@ -53,3 +60,4 @@ if (!module.parent) {
 }
 
 module.exports = apiServer;
+root@localhost:~/myhapiproject/serv

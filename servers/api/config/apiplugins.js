@@ -44,8 +44,8 @@ module.exports = function(apiServer, config) {
         transport: {
             service: 'Gmail',
             auth: {
-                user: '2014anakin@gmail.com',
-                pass: 'Anakin`123'
+                user: 'contact@carephysio.in',
+                pass: '606020@physiocare'
             }
         }//,
         //views: {
