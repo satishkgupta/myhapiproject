@@ -26,7 +26,7 @@ function sendRequest() {
   try{
   $.ajax({
       type: 'POST',
-      url: 'http://www.carephysio.in/schedule',
+      url: 'http://www.physioncare.com/schedule',
       data: {"Name":name,"phoneNumber":mobile,"address":message,"email":email},
       dataType: 'application/json',
       //success: function(data) { 

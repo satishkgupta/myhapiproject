@@ -27,8 +27,8 @@ var handler = function (request, reply) {
 
     //var text = JSON.stringify(reqdatajson, null, '  ');
     var data = {
-        from: 'contact@carephysio.in',
-        to: 'contact@carephysio.in',
+        from: 'contact@physioncare.com',
+        to: 'contact@physioncare.com',
         subject: request.payload.Name.toString().concat(' / ').concat(request.payload.email.toString()),
         html: JSON.stringify(text, null, '  '),
         context: {
